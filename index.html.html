@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LITTLE JAPAN — Discover Japan, Together</title>
+<meta name="description" content="世界の人と日本の文化をつなぐコミュニティ LITTLE JAPAN">
+<style>
+:root{--ink:#18212b;--muted:#667085;--red:#d94343;--cream:#fffaf4;--line:#eadfd5;--green:#2e6956}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:var(--ink);background:var(--cream);line-height:1.65}
+a{color:inherit}.wrap{width:min(1100px,92%);margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}.logo{font-weight:900;letter-spacing:.12em;font-size:1.1rem}.logo span{color:var(--red)}.nav small{color:var(--muted)}
+.hero{padding:54px 0 64px;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}.eyebrow{color:var(--red);font-weight:800;letter-spacing:.12em;font-size:.82rem}.hero h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.05;margin:12px 0 20px;letter-spacing:-.04em}.hero h1 span{color:var(--red)}.lead{font-size:1.08rem;color:#475467;max-width:580px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-block;padding:13px 19px;border-radius:999px;text-decoration:none;font-weight:750}.primary{background:var(--red);color:white}.secondary{border:1px solid var(--line);background:white}.art{min-height:330px;border-radius:28px;background:linear-gradient(145deg,#f5d8c7,#fff0d7 55%,#d7e8df);display:grid;place-items:center;position:relative;overflow:hidden}.sun{position:absolute;width:170px;height:170px;border-radius:50%;background:#d94343;right:14%;top:13%;opacity:.92}.mountain{position:absolute;bottom:-10px;width:0;height:0;border-left:190px solid transparent;border-right:190px solid transparent;border-bottom:220px solid #355e52}.mountain.two{left:20%;border-left-width:150px;border-right-width:150px;border-bottom-color:#6c8d75;opacity:.9}.wave{position:absolute;bottom:0;height:60px;width:100%;background:#e9b7a2;border-radius:50% 50% 0 0}.art-label{z-index:2;align-self:end;margin-bottom:25px;background:#fffaf4dd;padding:10px 18px;border-radius:99px;font-weight:800;letter-spacing:.08em}
+section{padding:52px 0}.section-head{max-width:650px;margin-bottom:26px}.section-head h2{font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.2;margin:8px 0}.section-head p{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:22px}.emoji{font-size:2rem}.card h3{margin:10px 0 6px}.card p{margin:0;color:var(--muted);font-size:.95rem}.tag{display:inline-block;background:#f9e8e3;color:#8d3030;border-radius:999px;padding:4px 9px;font-size:.75rem;font-weight:800;margin-top:14px}
+.steps{background:#f3eee7}.support{background:var(--green);color:white;border-radius:26px;padding:34px}.support p{color:#e2eee8}.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.tier{border:1px solid #ffffff55;background:#ffffff10;border-radius:16px;padding:18px}.tier strong{display:block;font-size:1.4rem}.tier small{color:#e2eee8}.footer{padding:28px 0 42px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}.notice{margin-top:18px;font-size:.8rem;color:#e2eee8}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:28px}.art{min-height:260px}.grid,.tiers{grid-template-columns:1fr}.nav small{max-width:160px;text-align:right}.hero h1{font-size:3.2rem}}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <div class="logo">LITTLE <span>JAPAN</span></div>
+  <small>Discover Japan. Share the wonder.</small>
+</header>
+<main>
+  <section class="wrap hero">
+    <div>
+      <div class="eyebrow">A COMMUNITY CONNECTING JAPAN TO THE WORLD</div>
+      <h1>Small things.<br><span>Big Japan.</span></h1>
+      <p class="lead">日本の文化、道具、食、暮らしの知恵。まだ知られていない日本の魅力を動画やストーリーで世界へ届け、応援する人とつくり手をつなぐコミュニティです。</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore Japan ↓</a>
+        <a class="btn secondary" href="#support">Support the project</a>
+      </div>
+    </div>
+    <div class="art" role="img" aria-label="日本の山と赤い太陽をイメージしたイラスト">
+      <div class="sun"></div><div class="mountain"></div><div class="mountain two"></div><div class="wave"></div>
+      <div class="art-label">MADE WITH JAPANESE HEART</div>
+    </div>
+  </section>
+
+  <section id="projects" class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">DISCOVER</div>
+      <h2>日本の「いいね」を、世界の「欲しい」へ。</h2>
+      <p>動画や記事から日本を知り、気に入ったプロジェクトを応援。最初は小さく、反応を確かめながら育てていきます。</p>
+    </div>
+    <div class="grid">
+      <article class="card"><div class="emoji">🧰</div><h3>Everyday Japanese Finds</h3><p>100円ショップの便利グッズなど、暮らしを楽しくする日本のアイテムを紹介。</p><span class="tag">COMING SOON</span></article>
+      <article class="card"><div class="emoji">🍵</div><h3>Taste of Japan</h3><p>お茶、お菓子、地域の味。つくり手の物語と一緒に日本の食文化を届けます。</p><span class="tag">COMING SOON</span></article>
+      <article class="card"><div class="emoji">🎎</div><h3>Culture & Craft</h3><p>伝統工芸、季節の行事、日々の習慣。日本の背景や意味までわかりやすく紹介。</p><span class="tag">COMING SOON</span></article>
+    </div>
+  </section>
+
+  <section class="steps">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">HOW IT WORKS</div>
+        <h2>応援が、次のストーリーをつくる。</h2>
+        <p>コミュニティ参加者の声を聞きながら、少しずつプロジェクトを増やします。</p>
+      </div>
+      <div class="grid">
+        <article class="card"><div class="emoji">▶️</div><h3>01. Discover</h3><p>動画・記事を見て、気になる日本の魅力を見つける。</p></article>
+        <article class="card"><div class="emoji">🤝</div><h3>02. Support</h3><p>企画に共感したら応援。特典や商品がある企画は内容を明確にします。</p></article>
+        <article class="card"><div class="emoji">🌏</div><h3>03. Connect</h3><p>世界の応援者とつながり、次に紹介してほしいものを提案する。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="support" class="wrap">
+    <div class="support">
+      <div class="eyebrow" style="color:#f5c7b7">BE PART OF LITTLE JAPAN</div>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.7rem);margin:8px 0">日本の魅力を、いっしょに世界へ。</h2>
+      <p>応援プランや商品特典は、実施する企画ごとに内容・発送時期・送料などを明記してご案内します。</p>
+      <div class="tiers">
+        <div class="tier"><small>HELLO</small><strong>¥500</strong><small>活動を応援</small></div>
+        <div class="tier"><small>FRIEND</small><strong>¥2,000</strong><small>企画の裏側を共有</small></div>
+        <div class="tier"><small>JAPAN LOVER</small><strong>¥5,000</strong><small>特典付き企画の候補</small></div>
+      </div>
+      <p class="notice">※これは構想段階のデモサイトです。支払い・会員登録・商品発送機能はまだありません。実際に支援を募集する前に、提供内容や利用規約などを整えます。</p>
+    </div>
+  </section>
+</main>
+<footer class="wrap footer">
+  <div class="logo">LITTLE <span>JAPAN</span></div>
+  <p>Discover Japan, together. — A community project in progress.</p>
+  <p>Contact: hello@littlejapan.example（仮の連絡先。公開前に差し替えてください）</p>
+</footer>
+</body>
+</html>
