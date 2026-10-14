@@ -8,8 +8,8 @@
     "price_jpy": 2980,
     "image_url": "",
     "checkout_url": "",
-    "status": "draft",
     "shipping_ja": "海外送料は別途。配送先によって異なります。",
-    "shipping_en": "International shipping is charged separately and varies by destination."
+    "shipping_en": "International shipping is charged separately and varies by destination.",
+    "status": "published"
   }
 ]
