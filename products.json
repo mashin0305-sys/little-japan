@@ -11,5 +11,18 @@
     "shipping_ja": "海外送料は別途。配送先によって異なります。",
     "shipping_en": "International shipping is charged separately and varies by destination.",
     "status": "published"
+  },
+  {
+    "id": "TOP3-TISSUE-001",
+    "name_ja": "TOP3の箱ティッシュ",
+    "name_en": "TOP3 Premium Box Tissues",
+    "description_ja": "日本の伝統的な家紋をモチーフにした、深緑と金色のオリジナルデザインの箱ティッシュです。ご自宅用にも贈り物にも。※画像は完成イメージです。実際の素材・枚数・仕様は製造先決定後に確定します。",
+    "description_en": "Premium-style box tissues featuring an elegant Japanese-inspired family crest design in deep green and gold. Ideal for everyday use or as a gift. Concept image only. Materials, sheet count and specifications will be confirmed after manufacturing arrangements are finalized.",
+    "price_jpy": 980,
+    "image_url": "https://mashin0305-sys.github.io/little-japan/IMG_8543.jpeg",
+    "checkout_url": "",
+    "shipping_ja": "送料は配送先によって異なります。",
+    "shipping_en": "Shipping fees vary by destination.",
+    "status": "draft"
   }
 ]
