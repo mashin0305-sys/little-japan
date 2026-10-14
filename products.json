@@ -1,0 +1,15 @@
+[
+  {
+    "id": "CPAW-TOWEL-001",
+    "name_ja": "日本の高級タオル（仮）",
+    "name_en": "Japanese Premium Towel (Demo)",
+    "description_ja": "日本の高級タオルをイメージしたテスト商品です。実際の素材・産地・仕様は未確定です。",
+    "description_en": "A demonstration listing for a premium Japanese towel. Material, origin and specifications are not yet confirmed.",
+    "price_jpy": 2980,
+    "image_url": "",
+    "checkout_url": "",
+    "status": "draft",
+    "shipping_ja": "海外送料は別途。配送先によって異なります。",
+    "shipping_en": "International shipping is charged separately and varies by destination."
+  }
+]
