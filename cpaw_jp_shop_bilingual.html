@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop Japanese Products | C.P.A.W.jp</title>
+<style>
+:root{--green:#063a2b;--gold:#b89b55;--ink:#1e2925}*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#fafaf8;color:var(--ink)}
+header{background:var(--green);color:#fff;padding:14px 16px;position:sticky;top:0;z-index:5;border-bottom:2px solid var(--gold)}
+.head{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-family:Georgia,serif;letter-spacing:.1em;color:#e3c983;text-decoration:none;font-size:19px}.head a{color:#e3c983;text-decoration:none;font-size:13px}
+main{max-width:1200px;margin:auto;padding:20px 14px 90px}
+h1{font-family:Georgia,serif;font-size:25px;font-weight:500;margin:0 0 6px}
+.sub{color:#65716c;font-size:13px;margin-bottom:20px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+input,select,button{font:inherit;border:1px solid #d6dcd8;border-radius:8px;padding:12px;background:white;color:var(--ink)}
+#search{flex:1;min-width:180px}select{max-width:100%}
+.filters{display:flex;gap:8px;overflow:auto;padding:4px 0 14px;scrollbar-width:none}
+.chip{white-space:nowrap;padding:8px 13px;border-radius:30px;font-size:12px;cursor:pointer}
+.chip.active{background:var(--green);color:#fff;border-color:var(--green)}
+.meta{display:flex;justify-content:space-between;align-items:center;color:#65716c;font-size:12px;margin:6px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product{background:#fff;border:1px solid #e7e9e6;border-radius:9px;overflow:hidden;min-width:0}
+.photo{aspect-ratio:1/1;background:#f0f1ee;display:flex;align-items:center;justify-content:center;color:#a0a8a3;font-size:12px;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:contain}
+.info{padding:10px}.category{color:#8b805d;font-size:10px;text-transform:uppercase;letter-spacing:.05em}
+.name{font-size:13px;line-height:1.45;margin:6px 0;min-height:38px;overflow-wrap:anywhere}
+.price{font-weight:700;font-size:16px}.stock{color:#65716c;font-size:11px;margin-top:6px}
+.empty{text-align:center;padding:44px 18px;background:white;border:1px solid #e7e9e6;border-radius:12px}
+.empty h2{font-size:19px;margin:0 0 10px}.empty p{font-size:13px;color:#65716c;line-height:1.8}
+.upload{border:1px dashed #b7c3ba;background:#f6f8f5;padding:16px;border-radius:10px;margin:18px 0;text-align:left}
+.upload summary{cursor:pointer;font-weight:600}.upload p{font-size:12px;color:#59665e;line-height:1.6}
+.upload input{width:100%;font-size:12px}.mapping{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.mapping label{font-size:11px;display:grid;gap:4px}.mapping select{padding:8px;width:100%;font-size:12px}
+.primary{background:var(--green);color:#fff;border-color:var(--green);margin-top:12px;cursor:pointer}
+.notice{font-size:12px;color:#765f28;line-height:1.6}
+footer{padding:20px;text-align:center;color:#8b928c;font-size:11px}
+@media(min-width:720px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.name{font-size:14px}main{padding-top:32px}}
+.lang-switch{display:flex;gap:3px;border:1px solid #b89b55;border-radius:20px;padding:3px}.lang-switch button{font-size:11px;padding:6px 8px;background:transparent;border:0;color:#e3c983;cursor:pointer}.lang-switch button[aria-pressed="true"]{background:#b89b55;color:#063a2b;border-radius:16px}</style></head><body>
+<header><div class="head"><a class="brand" href="cpaw_jp_home_bilingual.html">C.P.A.W.jp</a><div class="lang-switch" role="group" aria-label="Language"><button type="button" id="lang-ja" aria-pressed="true">日本語</button><button type="button" id="lang-en" aria-pressed="false">English</button></div><a id="home-link" href="cpaw_jp_home_bilingual.html">← Home</a></div></header>
+<main>
+<h1>Discover Japan</h1><div class="sub">Explore products from Japan · 日本の商品を探す</div>
+<div class="controls"><input id="search" type="search" placeholder="Search Japanese products..." aria-label="Search products"><select id="sort"><option value="default">Recommended</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="az">Name: A to Z</option></select></div>
+<div class="filters" id="filters"></div><div class="meta"><span id="count">0 products</span><span>C.P.A.W.jp Collection</span></div>
+<div id="grid" class="grid"></div><div id="empty" class="empty"><h2>Our collection is coming soon</h2><p>商品データを読み込むと、ここに商品が並びます。<br>No NETSEA products are published yet.</p></div>
+<details class="upload"><summary>商品データの読み込み（運営者向け・試作）</summary>
+<p>NETSEAのCSVを選択し、列を対応づけて「取り込む」を押してください。UTF-8 / Shift_JIS に対応します。取り込み内容はこのブラウザ内に保存され、公開サイトには自動反映されません。</p>
+<input id="csv" type="file" accept=".csv,text/csv">
+<div id="mapping" class="mapping" hidden></div>
+<button id="import" class="primary" hidden>このCSVを取り込む</button>
+<p id="message" class="notice"></p>
+<p>画像は公開URLがCSVに含まれる場合のみ表示されます。ZIP画像の紐づけや、全訪問者への商品公開は別途データ出力・GitHub更新が必要です。販売許可・画像利用・在庫・海外発送条件は公開前に確認してください。</p>
+<button id="export" type="button">商品データJSONを書き出す</button>
+</details>
+</main><footer>© C.P.A.W.jp · Connecting People Around the World with Japanese Products</footer>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const KEY='little_japan_catalog_v1';
+let products=[],rows=[],heads=[],active='All';
+const fields=[['id','商品番号 / SKU'],['name','商品名 / Name'],['category','カテゴリー / Category'],['price','販売価格 / Price'],['image','画像URL / Image'],['stock','在庫 / Stock']];
+const aliases={id:['商品番号','商品管理番号','商品コード','sku','id'],name:['商品名','商品タイトル','name','title'],category:['カテゴリ','カテゴリー','category'],price:['販売価格','卸価格','価格','price'],image:['画像url','画像','image_url','image'],stock:['在庫数','在庫','stock']};
+try{const saved=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(saved))products=saved}catch(e){}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function safeUrl(s){try{const u=new URL(s,location.href);return ['https:','http:','data:'].includes(u.protocol)?u.href:''}catch{return ''}}
+function draw(){
+ const q=$('search').value.trim().toLowerCase();const cats=['All',...new Set(products.map(p=>p.category).filter(Boolean))];
+ $('filters').innerHTML=cats.map(c=>`<button class="chip ${c===active?'active':''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+ let list=products.filter(p=>(active==='All'||p.category===active)&&[p.name,p.id,p.category].some(v=>String(v||'').toLowerCase().includes(q)));
+ const sort=$('sort').value;if(sort==='low')list.sort((a,b)=>num(a.price)-num(b.price));if(sort==='high')list.sort((a,b)=>num(b.price)-num(a.price));if(sort==='az')list.sort((a,b)=>a.name.localeCompare(b.name));
+ $('count').textContent=list.length+' products';$('empty').hidden=list.length>0;$('grid').innerHTML=list.map(p=>{const url=safeUrl(p.image);return `<article class="product"><div class="photo">${url?`<img loading="lazy" src="${esc(url)}" alt="${esc(p.name)}" onerror="this.remove()">`:'No image'}</div><div class="info"><div class="category">${esc(p.category||'Japan')}</div><div class="name">${esc(p.name||'Untitled product')}</div><div class="price">${p.price?'¥'+esc(p.price):'Price on request'}</div><div class="stock">${esc(p.stock||'Stock to be confirmed')}</div></div></article>`}).join('');
+}
+function num(x){return Number(String(x||'').replace(/[^0-9.]/g,''))||0}
+function parseCSV(text){let out=[],row=[],cell='',quote=false;for(let i=0;i<text.length;i++){let c=text[i];if(c==='"'){if(quote&&text[i+1]==='"'){cell+='"';i++}else quote=!quote}else if(c===','&&!quote){row.push(cell);cell=''}else if((c==='\n'||c==='\r')&&!quote){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);if(row.some(x=>x.trim()))out.push(row);row=[];cell=''}else cell+=c}row.push(cell);if(row.some(x=>x.trim()))out.push(row);return out}
+$('csv').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;const buf=await f.arrayBuffer();let str=new TextDecoder('utf-8').decode(buf);if(str.includes('\ufffd'))str=new TextDecoder('shift_jis').decode(buf);const parsed=parseCSV(str.replace(/^\ufeff/,''));heads=parsed.shift()||[];rows=parsed;$('message').textContent=`${rows.length}行を読み込みました。列を確認してください。`;const opts='<option value="">（未指定）</option>'+heads.map((h,i)=>`<option value="${i}">${esc(h)}</option>`).join('');$('mapping').innerHTML=fields.map(([k,label])=>{const guess=heads.findIndex(h=>(aliases[k]||[]).some(a=>h.trim().toLowerCase().includes(a)));return `<label>${label}<select id="map_${k}">${opts}</select></label>`}).join('');fields.forEach(([k])=>{const guess=heads.findIndex(h=>(aliases[k]||[]).some(a=>h.trim().toLowerCase().includes(a)));if(guess>=0)$('map_'+k).value=String(guess)});$('mapping').hidden=false;$('import').hidden=false});
+$('import').addEventListener('click',()=>{if(!$('map_name').value){$('message').textContent='商品名の列を選んでください。';return}const imported=rows.map((r,i)=>{const p={};fields.forEach(([k])=>{const ix=$('map_'+k).value;p[k]=ix===''?'':(r[Number(ix)]||'').trim()});p.id ||= String(i+1);return p}).filter(p=>p.name);products=imported;active='All';try{localStorage.setItem(KEY,JSON.stringify(products));$('message').textContent=products.length+'商品をブラウザ内に保存しました（公開サイトには未反映）。'}catch(e){$('message').textContent='保存容量を超えました。商品数を減らしてください。'}draw()});
+$('export').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(products,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='little_japan_products.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
+$('search').addEventListener('input',draw);$('sort').addEventListener('change',draw);$('filters').addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(b){active=b.dataset.cat;draw()}});draw();
+})();
+</script><script id="cpaw-shop-i18n">(()=>{const $=id=>document.getElementById(id);const translations={ja:{home:'← トップへ',title:'日本の商品を探す',sub:'日本の魅力を世界へ · C.P.A.W.jp',search:'商品を検索...',sort:['おすすめ順','価格が安い順','価格が高い順','名前順'],collection:'C.P.A.W.jp 商品一覧',emptyTitle:'商品は準備中です',emptyText:'商品データが登録されると、ここに商品が表示されます。',count:' 件の商品',all:'すべて'},en:{home:'← Home',title:'Discover Japan',sub:'Explore products from Japan · C.P.A.W.jp',search:'Search Japanese products...',sort:['Recommended','Price: low to high','Price: high to low','Name A–Z'],collection:'C.P.A.W.jp Collection',emptyTitle:'Our collection is coming soon',emptyText:'Products will appear here when the catalog is published.',count:' products',all:'All'}};let lang='ja';const count=$('count'),filters=$('filters');function updateDynamic(){const t=translations[lang];count.textContent=count.textContent.replace(/^(\d+).*$/,(_,n)=>n+t.count);const all=filters.querySelector('[data-cat="All"]');if(all)all.textContent=t.all}const observer=new MutationObserver(()=>{observer.disconnect();updateDynamic();observer.observe(count,{childList:true,subtree:true,characterData:true});observer.observe(filters,{childList:true,subtree:true})});function setLang(next){lang=next==='en'?'en':'ja';const t=translations[lang];document.documentElement.lang=lang;$('lang-ja').setAttribute('aria-pressed',String(lang==='ja'));$('lang-en').setAttribute('aria-pressed',String(lang==='en'));$('home-link').textContent=t.home;$('home-link').href='cpaw_jp_home_bilingual.html?lang='+lang;document.querySelector('h1').textContent=t.title;document.querySelector('.sub').textContent=t.sub;$('search').placeholder=t.search;$('search').setAttribute('aria-label',t.search);[...$('sort').options].forEach((o,i)=>{if(t.sort[i])o.textContent=t.sort[i]});document.querySelector('.meta span:last-child').textContent=t.collection;$('empty').querySelector('h2').textContent=t.emptyTitle;$('empty').querySelector('p').textContent=t.emptyText;updateDynamic();try{localStorage.setItem('cpaw_language',lang)}catch(e){}}$('lang-ja').addEventListener('click',()=>setLang('ja'));$('lang-en').addEventListener('click',()=>setLang('en'));const p=new URLSearchParams(location.search).get('lang');let stored='ja';try{stored=localStorage.getItem('cpaw_language')||'ja'}catch(e){}setLang(p||stored);observer.observe(count,{childList:true,subtree:true,characterData:true});observer.observe(filters,{childList:true,subtree:true})})();</script></body></html>
