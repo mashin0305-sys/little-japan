@@ -35,25 +35,21 @@ render();function frame(t){if(!last)last=t;const dt=Math.min(t-last,50);last=t;i
 track.style.touchAction='pan-y';track.addEventListener('pointerdown',e=>{dragging=true;velocity=0;lastX=e.clientX;track.setPointerCapture?.(e.pointerId)});track.addEventListener('pointermove',e=>{if(!dragging)return;const move=-(e.clientX-lastX)/145;lastX=e.clientX;phase=(phase+move+total*100)%total;velocity=move/16.67;render()});function release(){if(!dragging)return;dragging=false;resumeAt=performance.now()+1000}track.addEventListener('pointerup',release);track.addEventListener('pointercancel',release);document.addEventListener('visibilitychange',()=>{last=0});
 })();
 </script><script id="cpaw-language-script">(()=>{const ja=document.getElementById('cpaw-ja'),en=document.getElementById('cpaw-en'),shop=document.querySelector('.shop');function setLang(lang){lang=lang==='en'?'en':'ja';document.documentElement.lang=lang;ja.setAttribute('aria-pressed',String(lang==='ja'));en.setAttribute('aria-pressed',String(lang==='en'));shop.setAttribute('aria-label',lang==='en'?'Explore Japanese products':'日本の商品を見る');shop.href='shop-v2.html?lang='+lang;try{localStorage.setItem('cpaw_language',lang)}catch(e){}}ja.addEventListener('click',()=>setLang('ja'));en.addEventListener('click',()=>setLang('en'));let saved='ja';try{saved=localStorage.getItem('cpaw_language')||'ja'}catch(e){}setLang(new URLSearchParams(location.search).get('lang')||saved)})();</script>
-<footer style="position:relative;z-index:100;padding:20px;text-align:center;background:#09271f;font-size:12px;line-height:2">
-  <a href="legal.html" style="color:#e7d5a0">特定商取引法に基づく表記</a> ｜
-  <a href="privacy.html" style="color:#e7d5a0">プライバシーポリシー</a> ｜
-  <a href="terms.html" style="color:#e7d5a0">利用規約</a> ｜
-  <a href="shipping-returns.html" style="color:#e7d5a0">配送・返品について</a>
-</footer>
-
+<details class="cpaw-legal-menu" aria-label="法務情報メニュー">
+  <summary>法務情報</summary>
+  <nav aria-label="法務情報">
+    <a href="legal.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="terms.html">利用規約</a>
+    <a href="shipping-returns.html">配送・返品について</a>
+  </nav>
+</details>
 <style>
-body {
-  display: block !important;
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-}
-.scene {
-  margin: 0 auto;
-}
-footer {
-  width: 100%;
-  box-sizing: border-box;
-}
+/* Legal links float above the original layout without resizing the artwork. */
+.cpaw-legal-menu{position:fixed;right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));z-index:100;color:#e7d5a0;font:12px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;text-align:right}
+.cpaw-legal-menu summary{display:inline-block;cursor:pointer;list-style:none;padding:7px 11px;border:1px solid #b99d65;border-radius:20px;background:rgba(0,37,26,.90);color:#e7d5a0}
+.cpaw-legal-menu summary::-webkit-details-marker{display:none}
+.cpaw-legal-menu nav{position:absolute;right:0;bottom:calc(100% + 8px);width:min(265px,calc(100vw - 20px));padding:8px 12px;border:1px solid #b99d65;border-radius:12px;background:#09271f;box-shadow:0 5px 20px #0008;text-align:left}
+.cpaw-legal-menu nav a{display:block;padding:9px 4px;color:#e7d5a0;text-decoration:underline;text-underline-offset:3px}
 </style>
 </body></html>
